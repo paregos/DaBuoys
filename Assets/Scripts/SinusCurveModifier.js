@@ -22,7 +22,10 @@ function Update () {
 		if (useOriginal) {
 			vertex.y += Mathf.Sin(Time.time * speed+ baseHeight[i].x + baseHeight[i].y + baseHeight[i].z) * scale;
 		} else {
-			vertex.y += Mathf.Sin(Time.time * speed+ baseHeight[i].x + baseHeight[i].y) * (scale*.5) + Mathf.Sin(Time.time * speed+ baseHeight[i].z + baseHeight[i].y) * (scale*.5);
+			// Debug.Log(baseHeight[i].x);
+			// Debug.Log(baseHeight[i].y);
+			vertex.y += Mathf.Cos(scale * 0.5 * Mathf.Sqrt(baseHeight[i].x * baseHeight[i].x + baseHeight[i].z * baseHeight[i].z) - 6 * Time.time) / (scale * 0.5 * (baseHeight[i].x * baseHeight[i].x + baseHeight[i].z * baseHeight[i].z) + 1 + 2*Time.time);
+			//vertex.y += Mathf.Sin(Time.time * speed+ baseHeight[i].x + baseHeight[i].y) * (scale*.5) + Mathf.Sin(Time.time * speed+ baseHeight[i].z + baseHeight[i].y) * (scale*.5);
 		}
 		
 		vertices[i] = vertex;
