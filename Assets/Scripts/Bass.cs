@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bass : MonoBehaviour {
 
     public Transform PlopEffect;
+    public float bassDropSpin = 4f;
     public float timeToPlop = 3f;
     public float killTime = 9f;
     public float plopTime = 0.8f;
@@ -18,6 +19,12 @@ public class Bass : MonoBehaviour {
         StartCoroutine(startPlop());
         StartCoroutine(kill());
         startPos = transform.position;
+        GetComponent<Rigidbody>().angularVelocity = generateRandomSpin();
+    }
+
+    private Vector3 generateRandomSpin()
+    {
+        return Random.onUnitSphere * bassDropSpin;
     }
 
     IEnumerator kill()
@@ -34,5 +41,17 @@ public class Bass : MonoBehaviour {
         Transform trans = Instantiate(PlopEffect, startPos, Quaternion.identity) as Transform;
         Plop plop = trans.gameObject.GetComponent<Plop>();
         plop.startDissipate(timeToPlop);
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+
+        if (other.attachedRigidbody.tag == "Player")
+        {
+            Destroy(gameObject);
+            Debug.Log("CAUGHT");
+            GameObject.FindObjectOfType<HUD>().caughtFish();
+            
+        }
     }
 }

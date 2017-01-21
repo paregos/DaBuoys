@@ -40,5 +40,6 @@ public class Boaty : MonoBehaviour {
         yield return new WaitForSeconds(3);
         Debug.Log("Ded");
         Destroy(gameObject);
+        GameObject.FindObjectOfType<HUD>().PoseidonWins();
     }
 }

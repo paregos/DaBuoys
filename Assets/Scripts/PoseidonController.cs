@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PoseidonController : MonoBehaviour {
+
     public Vector3 spawnPosition = new Vector3(0, 10, 0);
     public float lightRange = 10f;
     public float dropDistanceBelowPoseidon = 3f;
