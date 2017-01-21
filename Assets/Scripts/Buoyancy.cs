@@ -17,6 +17,7 @@ public class Buoyancy : MonoBehaviour
     public int slicesPerAxis = 2;
     public bool isConcave = false;
     public int voxelsLimit = 16;
+    public GameObject ocean;
 
     private const float DAMPFER = 0.1f;
     private const float WATER_DENSITY = 1000;
@@ -243,8 +244,7 @@ public class Buoyancy : MonoBehaviour
     /// <returns>Water level</returns>
     private float GetWaterLevel(float x, float z)
     {
-        //		return ocean == null ? 0.0f : ocean.GetWaterHeightAtLocation(x, z);
-        return 0.0f;
+        return GetComponent<Plop>().getDistortionForPoint(x, z);
     }
 
     /// <summary>
