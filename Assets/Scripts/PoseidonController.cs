@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PoseidonController : MonoBehaviour {
     public Vector3 spawnPosition = new Vector3(0, 10, 0);
+    public float lightRange = 10f;
     public float dropDistanceBelowPoseidon = 3f;
+
+    private float offLightRange = 0f;
+    private float onLightRange = 40f;
+    private float startAngle = 179f;
+    private float endAngle = 10f;
 
     // Select which prefab should be dropped from ingame GUI
     public Transform prefab;
@@ -12,10 +18,10 @@ public class PoseidonController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         transform.position = spawnPosition;
+        GetComponentInChildren<Light>().range = spawnPosition.y + lightRange;
     }
 
     public float speed = 6.0F;
-    public float jumpSpeed = 8.0F;
     private Vector3 moveDirection = Vector3.zero;
 
     public float chargeTime = 5.0f;
@@ -49,8 +55,6 @@ public class PoseidonController : MonoBehaviour {
         Instantiate(prefabToDrop, transform.position + Vector3.down * dropDistanceBelowPoseidon, Quaternion.identity);
     }
 
-    private float startAngle = 179f;
-    private float endAngle = 20f;
 
     /**
         Called everyframe to focus the shot beam.
@@ -75,8 +79,7 @@ public class PoseidonController : MonoBehaviour {
         StartCoroutine(flash());
     }
 
-    private float offLightRange = 10f;
-    private float onLightRange = 50f;
+    
     IEnumerator flash()
     {
         Light spotLight = GetComponentInChildren<Light>();
