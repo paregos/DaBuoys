@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419213757e082e74c8bae60b7a1a38b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: 500
+  scale: 50
   speed: 50
   bobbers:
   - {fileID: 0}

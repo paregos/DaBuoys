@@ -26,6 +26,7 @@ function FixedUpdate () {
 		if (Physics.Raycast(rayOrigin, -Vector3.up, hit, Mathf.Infinity, layerMask)) {
 			waterLevel = hit.point.y;
 		}
+		Debug.Log(waterLevel);
 		
 		var forceFactor = ((1f - ((actionPoint.y - waterLevel) / floatHeight)) / bPoints.length);
 	
