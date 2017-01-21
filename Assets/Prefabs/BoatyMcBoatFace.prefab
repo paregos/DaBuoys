@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505715795119538}
-  m_Mesh: {fileID: 4300000, guid: e96ecfe0b05c84445b74ccfc7578ee5c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 1d3c408b60d385045895aae1f1fd0015, type: 3}
 --- !u!54 &54181786972816366
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -158,7 +158,7 @@ MonoBehaviour:
   ocean: {fileID: 0}
 --- !u!114 &114476477972110388
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505715795119538}
