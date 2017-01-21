@@ -56,23 +56,14 @@ public class WaveController : MonoBehaviour {
     }
 
     public float GetWaterHeightAtLocation(float x, float z) {
-         Vector3 point = new Vector3(x, 0, z);
-         point = transform.InverseTransformPoint(point);
-         float minDistanceSqr = Mathf.Infinity;
-         Vector3 nearestVertex = Vector3.zero;
-         // scan all vertices to find nearest
-         foreach (Vector3 vertex in mesh.vertices)
-         {
-             Vector3 diff = point - vertex;
-             float distSqr = diff.sqrMagnitude;
-             if (distSqr < minDistanceSqr)
-             {
-                 minDistanceSqr = distSqr;
-                 nearestVertex = vertex;
-             }
-         }
-         // convert nearest vertex back to world space
-         return transform.TransformPoint(nearestVertex).y;
+		float totalDistortion = 0f;
+		foreach (GameObject obj in bobbers) {
+			totalDistortion += obj.GetComponent<Plop>().getDistortionForPoint (x, z);
+		}
+		return totalDistortion;
     }
 
+	public float GetWaterNormalAtLocation(float x, float z) {
+		return 0f;
+	}
 }
