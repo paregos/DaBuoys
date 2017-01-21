@@ -322,6 +322,11 @@ Prefab:
       propertyPath: vscale
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 114476477972110388, guid: dea1588631db0d146bd232dcf8967cc1,
+        type: 2}
+      propertyPath: mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 01d6d362c3aeb154790078e5c889024c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dea1588631db0d146bd232dcf8967cc1, type: 2}
   m_IsPrefabParent: 0
@@ -374,6 +379,11 @@ Prefab:
       propertyPath: hscale
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114817301245354226, guid: 6a1d0c57f4aa47942a813dd361accf69,
+        type: 2}
+      propertyPath: mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 01d6d362c3aeb154790078e5c889024c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a1d0c57f4aa47942a813dd361accf69, type: 2}
   m_IsPrefabParent: 0
@@ -426,6 +436,11 @@ Prefab:
       propertyPath: bobbers.Array.data[1]
       value: 
       objectReference: {fileID: 2085790125}
+    - target: {fileID: 114353955651137430, guid: 955032f074a9d814ab6ebcb9c7fe8f7d,
+        type: 2}
+      propertyPath: noiseStrength
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 955032f074a9d814ab6ebcb9c7fe8f7d, type: 2}
   m_IsPrefabParent: 0
