@@ -35,8 +35,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4794204770255050}
-  - component: {fileID: 33659904940899114}
-  - component: {fileID: 23117112136419994}
   - component: {fileID: 114563364190808326}
   - component: {fileID: 143324656583950512}
   m_Layer: 0
@@ -73,44 +71,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!23 &23117112136419994
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1413693252099618}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &33659904940899114
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1413693252099618}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!108 &108395213131354842
 Light:
   m_ObjectHideFlags: 1
@@ -156,11 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b8bd1e0e370c74e8056cbaa55a833f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPosition: {x: 0, y: 10, z: 0}
+  spawnPosition: {x: 0, y: 30, z: 0}
+  lightRange: 10
   dropDistanceBelowPoseidon: 3
   prefab: {fileID: 4186152802869066, guid: 85938d82667e70c4e99170dc298fd5f1, type: 2}
   speed: 6
-  jumpSpeed: 8
   chargeTime: 5
 --- !u!143 &143324656583950512
 CharacterController:

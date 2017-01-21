@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 23311570770013808}
   - component: {fileID: 95202378424050934}
   - component: {fileID: 54403323452725434}
-  - component: {fileID: 136279473439696308}
   - component: {fileID: 114453532269456564}
   - component: {fileID: 114626565843760738}
+  - component: {fileID: 65433115507871500}
   m_Layer: 0
   m_Name: DaBuoy
   m_TagString: Untagged
@@ -129,6 +129,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65433115507871500
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1203903519727146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6348377, y: 4.2122707, z: 1.6348377}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!95 &95202378424050934
 Animator:
   serializedVersion: 3
@@ -202,7 +214,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1203903519727146}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf4727dcc22d8a94da1bf881bd426a46, type: 3}
   m_Name: 
@@ -212,16 +224,5 @@ MonoBehaviour:
   hscale: 1
   startTime: 0
   period: 0.3
---- !u!136 &136279473439696308
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1203903519727146}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.8174189
-  m_Height: 4.2122707
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  dissipate: 0
+  dissipateTime: 10
