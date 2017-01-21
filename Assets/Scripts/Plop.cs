@@ -12,15 +12,20 @@ public class Plop : MonoBehaviour {
 	public float scale = 1f;
 	float startTime = 0f;
 
+    private WaveController controller;
+
 	public static Mesh originalMesh;
 
     private Vector3[] baseHeight;
 
 	// Use this for initialization
 	void Start () {
-		vertices = mesh.vertices;
-
-		Vector3 pos = transform.position;
+        Debug.Log("START");
+        controller = GameObject.FindObjectOfType<WaveController>();
+        controller.bobbers.Add(gameObject);
+       
+        vertices = mesh.vertices;
+        Vector3 pos = transform.position;
 		this.xPos = pos.x;
 		this.zPos = pos.z;
 	}

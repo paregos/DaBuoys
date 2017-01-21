@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RippleSphere : MonoBehaviour {
 
+    public Transform waveblock;
     private SphereCollider collider;
     public float speed = 3f;
 	// Use this for initialization
@@ -20,7 +21,7 @@ public class RippleSphere : MonoBehaviour {
         Debug.Log("ENTERED");
         if (other.tag == "Rock")
         {
-            Destroy(other.gameObject);
+            Instantiate(waveblock, other.transform.position, Quaternion.identity);
         }
         
     }
