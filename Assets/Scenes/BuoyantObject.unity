@@ -367,7 +367,7 @@ Prefab:
     - target: {fileID: 114817301245354226, guid: 6a1d0c57f4aa47942a813dd361accf69,
         type: 2}
       propertyPath: vscale
-      value: 30
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114817301245354226, guid: 6a1d0c57f4aa47942a813dd361accf69,
         type: 2}

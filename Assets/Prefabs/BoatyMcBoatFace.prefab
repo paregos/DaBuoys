@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 65907598407637054}
   - component: {fileID: 114306888621971954}
   - component: {fileID: 114177202798368842}
+  - component: {fileID: 114476477972110388}
   m_Layer: 0
   m_Name: BoatyMcBoatFace
   m_TagString: Untagged
@@ -157,7 +158,7 @@ MonoBehaviour:
   ocean: {fileID: 0}
 --- !u!114 &114476477972110388
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505715795119538}
@@ -170,3 +171,4 @@ MonoBehaviour:
   vscale: 6
   hscale: 0.33333334
   startTime: 38.89045
+  period: 1
