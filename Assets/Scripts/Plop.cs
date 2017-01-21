@@ -16,6 +16,11 @@ public class Plop : MonoBehaviour {
 	public float startTime = 0f;
 	public float period = 1f;
 
+    public bool dissipate = false;
+    public float dissipateTime = 10f;
+    private float initialVScale;
+    private float dissipateCounter = 0f;
+
     private Vector3[] baseHeight;
 
 	// Use this for initialization
@@ -31,7 +36,34 @@ public class Plop : MonoBehaviour {
 
 		this.xPos = pos.x;
 		this.zPos = pos.z;
-	}
+        initialVScale = vscale;
+    }
+
+    void Update ()
+    {
+        if (dissipate)
+        {
+            if (dissipateCounter > dissipateTime)
+            {
+                controller.bobbers.Remove(gameObject);
+                Destroy(gameObject);
+                return;
+            }
+            vscale = Mathf.Lerp(initialVScale, 0f, dissipateCounter / dissipateTime);
+            dissipateCounter += Time.deltaTime;
+        }
+    }
+
+    public void startDissipate(float time)
+    {
+        dissipate = true;
+        dissipateCounter = time;
+    }
+
+    public void startDissipate()
+    {
+        dissipate = true;
+    }
 
 	public float[] getDistortions() {
 		distortions = new float[vertices.Length];
