@@ -8,66 +8,47 @@ public class WaveController : MonoBehaviour {
 
     public float scale = 0.1f;
     public float speed = 1.0f;
-    public float noiseStrength = 1f;
-    float noiseWalk = 1f;
 
-    private Vector3[] baseHeight;
+    public List<GameObject> bobbers;
     private Mesh mesh;
+
+    public float noiseStrength = 1f;
+    float noiseWalk = 0.3f;
+
+    void Start() {
+        mesh = GetComponent<MeshFilter>().mesh;
+    }
 
     void Update()
     {
-        mesh = GetComponent<MeshFilter>().mesh;
-
-        if (baseHeight == null)
-            baseHeight = mesh.vertices;
-
-        Vector3[] vertices = new Vector3[baseHeight.Length];
-        for (int i = 0; i < vertices.Length; i++)
-        {
-            Vector3 vertex = baseHeight[i];
-            // vertex.y += Mathf.Sin(Time.time * speed + baseHeight[i].x + baseHeight[i].y + baseHeight[i].z) * scale;
-            vertex.y +=  Mathf.Cos(scale * 0.5f * Mathf.Sqrt(baseHeight[i].x * baseHeight[i].x + baseHeight[i].z * baseHeight[i].z) - 6 * Time.time) 
-                                 / (scale * 0.5f * (baseHeight[i].x * baseHeight[i].x + baseHeight[i].z * baseHeight[i].z) + 1 + 2 * Time.time);
-            // vertex.y += Mathf.PerlinNoise(baseHeight[i].x + noiseWalk, baseHeight[i].y + Mathf.Sin(Time.time * 0.1f)) * noiseStrength;
-            vertices[i] = vertex;
+        Vector3[] vertices = mesh.vertices;
+        float[] totalDistortions = new float[mesh.vertices.Length];
+        foreach (GameObject obj in bobbers) {
+            float[] distorts = obj.GetComponent<Plop>().getDistortions();
+            for (int j = 0; j < totalDistortions.Length; j++) {
+                totalDistortions[j] += distorts[j];
+            }
+        }
+        for (int i = 0; i < totalDistortions.Length; i++) {
+            Vector3 vertex = vertices[i];
+            vertex.y = totalDistortions[i];
+            vertex.y += Mathf.PerlinNoise(vertex.x + noiseWalk + Mathf.Sin(0.7f*Time.time), vertex.z + Mathf.Sin(0.7f*Time.time)) * noiseStrength - 0.5f;
+            vertices[i] = vertex;  
         }
         mesh.vertices = vertices;
         mesh.RecalculateNormals();
     }
 
-    public Vector3[,] getVerticeMap()
-    {
-        Vector3[,] v_map = new Vector3[WAVE_VERT_WIDTH,WAVE_VERT_WIDTH];
-        int j = 0;
-        int k = 0;
-        for (int i = 0; i < mesh.vertices.Length; i++)
+    void OnApplicationQuit() {
+        Vector3[] vertices = mesh.vertices;
+        for (int i = 0; i < vertices.Length; i++)
         {
-            if (j < WAVE_VERT_WIDTH)
-            {
-                v_map[j, k] = mesh.vertices[i];
-                j++;
-            }
-            else
-            {
-                j = 0;
-                k++;
-            }
+            Vector3 vertex = vertices[i];
+            vertex.y = 0;
+            vertices[i] = vertex;
         }
-        return v_map;
-    }
-
-    public void setVertices(Vector3[,] vert_map)
-    {
-        Vector3[] vert_list = new Vector3[WAVE_VERT_WIDTH * WAVE_VERT_WIDTH];
-        int i = 0;
-        for (int j = 0; j < WAVE_VERT_WIDTH; j++)
-        {
-            for (int k = 0; k < WAVE_VERT_WIDTH; k++)
-            {
-                vert_list[i] = vert_map[j, k];
-            }
-        }
-        mesh.vertices = vert_list;
+        mesh.vertices = vertices;
+        mesh.RecalculateNormals();
     }
 
 }
