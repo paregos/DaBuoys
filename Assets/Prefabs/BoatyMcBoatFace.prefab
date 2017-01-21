@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54181786972816366}
   - component: {fileID: 65907598407637054}
   - component: {fileID: 114306888621971954}
+  - component: {fileID: 114476477972110388}
   m_Layer: 0
   m_Name: BoatyMcBoatFace
   m_TagString: Untagged
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505715795119538}
   m_LocalRotation: {x: -0.0002778722, y: 0.006014966, z: -0.04614675, w: 0.99891657}
-  m_LocalPosition: {x: 1.379818, y: 1.1152477, z: -6.596938}
+  m_LocalPosition: {x: 3.89, y: 0.89, z: 2.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,8 +109,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.63, y: 2.32, z: 3.15}
-  m_Center: {x: -0.21771705, y: 0.57, z: 0}
+  m_Size: {x: 3.63, y: 2.32, z: 0.3}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!95 &95477515622755224
 Animator:
   serializedVersion: 3
@@ -118,7 +119,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505715795119538}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e96ecfe0b05c84445b74ccfc7578ee5c, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 1d3c408b60d385045895aae1f1fd0015, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -142,3 +143,19 @@ MonoBehaviour:
   slicesPerAxis: 2
   isConcave: 0
   voxelsLimit: 16
+  ocean: {fileID: 0}
+--- !u!114 &114476477972110388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1505715795119538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4727dcc22d8a94da1bf881bd426a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 4300002, guid: 5f07f50e5dc874f4982e57b514468c4a, type: 3}
+  vscale: 6
+  hscale: 0.33333334
+  startTime: 38.89045

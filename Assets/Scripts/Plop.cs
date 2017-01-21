@@ -12,15 +12,14 @@ public class Plop : MonoBehaviour {
 	public float vscale = 1f;
 	public float hscale = 1f;
 	public float startTime = 0f;
-	public static Mesh originalMesh;
+	public float period = 1f;
 
     private Vector3[] baseHeight;
 
 	// Use this for initialization
 	void Start () {
-		vertices = mesh.vertices;
-		vscale = vscale * hscale;
-		hscale = 1/hscale;
+		this.vertices = mesh.vertices;
+		this.hscale = 1/this.hscale;
 		Vector3 pos = transform.position;
 		this.xPos = pos.x;
 		this.zPos = pos.z;
@@ -33,7 +32,7 @@ public class Plop : MonoBehaviour {
         for (int i = 0; i < vertices.Length; i++)
         {
             Vector3 vertex = vertices[i];
-            distortions[i] = vscale * Mathf.Cos(0.5f * Mathf.Sqrt(Mathf.Pow(hscale * (vertex.x - xPos),2f) + Mathf.Pow(hscale * (vertex.z - zPos), 2f)) - 6f * startTime)
+            distortions[i] = vscale * Mathf.Cos((1/period) * 0.5f * Mathf.Sqrt(Mathf.Pow(hscale * (vertex.x - xPos),2f) + Mathf.Pow(hscale * (vertex.z - zPos), 2f)) - 6f * startTime)
                                  / (0.5f * (Mathf.Pow(hscale * (vertex.x - xPos),2f)  + Mathf.Pow(hscale * (vertex.z - zPos), 2)) + 1f + 2f * startTime);
         }
         return distortions;
