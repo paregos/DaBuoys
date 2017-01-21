@@ -244,7 +244,8 @@ public class Buoyancy : MonoBehaviour
     /// <returns>Water level</returns>
     private float GetWaterLevel(float x, float z)
     {
-        return GetComponent<Plop>().getDistortionForPoint(x, z);
+        return 0;
+       // return GetComponent<Plop>().getDistortionForPoint(x, z);
     }
 
     /// <summary>

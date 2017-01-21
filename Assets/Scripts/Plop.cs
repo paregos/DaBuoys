@@ -37,6 +37,7 @@ public class Plop : MonoBehaviour {
 		this.xPos = pos.x;
 		this.zPos = pos.z;
         initialVScale = vscale;
+        StartCoroutine(trigger());
     }
 
     void Update ()
@@ -82,4 +83,38 @@ public class Plop : MonoBehaviour {
 		return vscale * Mathf.Cos(0.5f * Mathf.Sqrt(Mathf.Pow(hscale * (x - xPos),2f) + Mathf.Pow(hscale * (z - zPos), 2f)) - 6f * startTime)
                                  / (0.5f * (Mathf.Pow(hscale * (x - xPos),2f)  + Mathf.Pow(hscale * (z - zPos), 2)) + 1f + 2f * startTime);
 	}
+
+    void OnTriggerStay(Collider other)
+    {
+        
+        if (other.attachedRigidbody)
+        {
+            if (wavePush)
+            {
+                other.attachedRigidbody.AddForce(Vector3.up * vscale * 1000);
+                Vector3 vel = other.attachedRigidbody.velocity;
+                vel.y = -Mathf.Abs(vel.y);
+                other.attachedRigidbody.velocity = vel;
+            }
+            else
+            {
+                other.attachedRigidbody.AddForce(Vector3.down * vscale * 1000);
+                Vector3 vel = other.attachedRigidbody.velocity;
+                vel.y = -Mathf.Abs(vel.y);
+                other.attachedRigidbody.velocity = vel;
+            }
+        }
+       
+            
+    }
+
+    private bool wavePush = false;
+    IEnumerator trigger()
+    {
+        while (dissipate) {
+            yield return new WaitForSeconds(period);
+            wavePush = true;
+        }
+
+    }
 }

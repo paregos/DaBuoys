@@ -15,8 +15,10 @@ public class WaveController : MonoBehaviour {
     public float noiseStrength = 1f;
     float noiseWalk = 0.3f;
 
-    void Start() {
+    void Start()
+    {
         mesh = GetComponent<MeshFilter>().mesh;
+        mesh.MarkDynamic();
     }
 
     void Update()
@@ -37,6 +39,7 @@ public class WaveController : MonoBehaviour {
         }
         mesh.vertices = vertices;
         mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
     }
 
     void OnApplicationQuit() {
@@ -49,6 +52,7 @@ public class WaveController : MonoBehaviour {
         }
         mesh.vertices = vertices;
         mesh.RecalculateNormals();
+   
     }
 
     public float GetWaterHeightAtLocation(float x, float z) {
