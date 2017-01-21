@@ -16,7 +16,7 @@ public class RockGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		obj = Instantiate (rock, new Vector3 (hit.point.x, hit.point.y + y, hit.point.z), Quaternion.identity) as GameObject;
+		//Initialise the 
 		targ = Instantiate (target, new Vector3 (hit.point.x, hit.point.y, hit.point.z), Quaternion.identity) as GameObject;
 	}
 	
@@ -24,13 +24,16 @@ public class RockGenerator : MonoBehaviour {
 	void Update () {
 		ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		if (Physics.Raycast (ray, out hit)) {
+			//Instantiate a rock when mouse clicked
 			if (Input.GetMouseButtonUp(0)) {
 				GameObject targ = Instantiate (rock, new Vector3 (hit.point.x, hit.point.y + y, hit.point.z), Quaternion.identity) as GameObject;
 			}
 		}
+
+		//Let the red target icon follow 
 		Vector3 temp = Input.mousePosition;
+		//The distance between water surface and camera
 		temp.z = 12f;
 		targ.transform.position = Camera.main.ScreenToWorldPoint (temp);
-		//targ.transform.position = Camera.main.ScreenToWorldPoint (new Vector3 (hit.point.x, 0f, hit.point.z));
 	}
 }
