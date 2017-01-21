@@ -81,13 +81,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4727dcc22d8a94da1bf881bd426a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 4300002, guid: 5f07f50e5dc874f4982e57b514468c4a, type: 3}
-  vscale: 10
+  mesh: {fileID: 4300000, guid: 5f07f50e5dc874f4982e57b514468c4a, type: 3}
+  vscale: 4
   hscale: 1
   startTime: 0
   period: 0.6
-  dissipate: 1
-  dissipateTime: 20
+  dissipate: 0
+  dissipateTime: 4
 --- !u!135 &135643435172034480
 SphereCollider:
   m_ObjectHideFlags: 1

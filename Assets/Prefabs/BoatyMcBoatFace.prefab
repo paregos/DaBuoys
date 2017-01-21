@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505715795119538}
   m_LocalRotation: {x: 0, y: 0, z: 0.028270576, w: 0.9996003}
-  m_LocalPosition: {x: -8.32, y: 1.51, z: -6.596938}
+  m_LocalPosition: {x: -8.32, y: 0.5, z: -6.596938}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4440144947478674}
@@ -455,8 +455,8 @@ MonoBehaviour:
   density: 500
   slicesPerAxis: 2
   isConcave: 0
-  voxelsLimit: 16
-  ocean: {fileID: 0}
+  voxelsLimit: 4
+  ocean: {fileID: 1726270276375392, guid: 955032f074a9d814ab6ebcb9c7fe8f7d, type: 2}
 --- !u!114 &114476477972110388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4727dcc22d8a94da1bf881bd426a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 4300002, guid: 5f07f50e5dc874f4982e57b514468c4a, type: 3}
+  mesh: {fileID: 4300000, guid: 5f07f50e5dc874f4982e57b514468c4a, type: 3}
   vscale: 6
   hscale: 0.33333334
   startTime: 38.89045

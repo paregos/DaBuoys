@@ -80,7 +80,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1726270276375392}
-  m_Mesh: {fileID: 4300002, guid: 5f07f50e5dc874f4982e57b514468c4a, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5f07f50e5dc874f4982e57b514468c4a, type: 3}
 --- !u!82 &82088903684955584
 AudioSource:
   m_ObjectHideFlags: 1
