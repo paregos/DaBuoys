@@ -299,8 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 4300002, guid: 5f07f50e5dc874f4982e57b514468c4a, type: 3}
-  scale: 6
-  controller: {fileID: 773138195}
+  scale: 20
 --- !u!23 &185824640
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -386,19 +385,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4227345796667790, guid: dea1588631db0d146bd232dcf8967cc1, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.00610775
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345796667790, guid: dea1588631db0d146bd232dcf8967cc1, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.0000986136
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345796667790, guid: dea1588631db0d146bd232dcf8967cc1, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.016143246
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345796667790, guid: dea1588631db0d146bd232dcf8967cc1, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.99985105
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4227345796667790, guid: dea1588631db0d146bd232dcf8967cc1, type: 2}
       propertyPath: m_RootOrder
@@ -406,7 +405,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4227345796667790, guid: dea1588631db0d146bd232dcf8967cc1, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -1.85
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345796667790, guid: dea1588631db0d146bd232dcf8967cc1, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -414,7 +413,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4227345796667790, guid: dea1588631db0d146bd232dcf8967cc1, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65907598407637054, guid: dea1588631db0d146bd232dcf8967cc1,
         type: 2}
@@ -434,7 +433,7 @@ Prefab:
     - target: {fileID: 65907598407637054, guid: dea1588631db0d146bd232dcf8967cc1,
         type: 2}
       propertyPath: m_Size.z
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 65907598407637054, guid: dea1588631db0d146bd232dcf8967cc1,
         type: 2}
@@ -539,18 +538,28 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 713030829}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.66, y: 0.57, z: 2.61}
+  m_LocalPosition: {x: 4.82, y: 0.43, z: 2.61}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &773138195 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114353955651137430, guid: 955032f074a9d814ab6ebcb9c7fe8f7d,
+--- !u!1 &1053680220 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1505715795119538, guid: dea1588631db0d146bd232dcf8967cc1,
     type: 2}
-  m_PrefabInternal: {fileID: 1678104036}
-  m_Script: {fileID: 11500000, guid: 419213757e082e74c8bae60b7a1a38b7, type: 3}
+  m_PrefabInternal: {fileID: 362337071}
+--- !u!114 &1053680228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053680220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbeffb2e14650334b87f411707d4c796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1087923967
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveblock: {fileID: 4727937416909410, guid: 6a1d0c57f4aa47942a813dd361accf69, type: 2}
-  speed: 3
+  speed: 2
 --- !u!135 &1087923970
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -638,7 +647,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: 4300002, guid: 5f07f50e5dc874f4982e57b514468c4a, type: 3}
   scale: 3
-  controller: {fileID: 773138195}
 --- !u!23 &1530852839
 MeshRenderer:
   m_ObjectHideFlags: 0
