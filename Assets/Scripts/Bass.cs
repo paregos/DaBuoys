@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bass : MonoBehaviour {
 
+    public AudioClip fishsplash;
+
     public Transform PlopEffect;
     public float bassDropSpin = 4f;
     public float timeToPlop = 3f;
@@ -38,6 +40,8 @@ public class Bass : MonoBehaviour {
     {
         Debug.Log("Bass plop");
         yield return new WaitForSeconds(timeToPlop);
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(fishsplash, 1f);
         Transform trans = Instantiate(PlopEffect, startPos, Quaternion.identity) as Transform;
         Plop plop = trans.gameObject.GetComponent<Plop>();
         plop.vscale = plopForce;

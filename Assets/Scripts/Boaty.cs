@@ -26,6 +26,7 @@ public class Boaty : MonoBehaviour {
      
         rb.velocity += Input.GetAxis("P1-V") * transform.right * speed * Time.deltaTime;
         rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, -maxspeed, maxspeed);
+        GetComponent<AudioSource>().volume = Mathf.Clamp01(0.7f + 2f * rb.velocity.magnitude / maxspeed);
     }
 
     private void sink()
@@ -34,11 +35,13 @@ public class Boaty : MonoBehaviour {
         GetComponent<Rigidbody>().mass = 1.87f;
         StartCoroutine(kill());
     }
+    public AudioClip sinking;
 
     IEnumerator kill()
     {
+        AudioSource audio =  GetComponent<AudioSource>();
         yield return new WaitForSeconds(3);
-        Debug.Log("Ded");
+        audio.PlayOneShot(sinking, 1f);
         Destroy(gameObject);
         GameObject.FindObjectOfType<HUD>().PoseidonWins();
     }
