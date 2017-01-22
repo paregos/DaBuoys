@@ -16,6 +16,7 @@ public class HUD : MonoBehaviour
     public RawImage[] healthBar = new RawImage[3];
 
     public AudioClip fisheatsound;
+    public AudioClip victoryTune;
 
     private float time;
     private int fishCaught;
@@ -58,11 +59,13 @@ public class HUD : MonoBehaviour
 
     public void FishermanWins()
     {
+        GameObject.FindObjectOfType<WaveController>().fadeOutMusic(1f);
         StartCoroutine(FisherMan());
     }
 
     public void PoseidonWins()
     {
+        GameObject.FindObjectOfType<WaveController>().fadeOutMusic(1f);
         StartCoroutine(Poseidon());
     }
 
@@ -71,6 +74,8 @@ public class HUD : MonoBehaviour
         Debug.Log("entering end");
         victory.enabled = true;
         victory.text = "Fisherman Wins!";
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(victoryTune, 1f);
         yield return new WaitForSeconds(3);
         Application.LoadLevel("MainMenu");
     }
@@ -79,6 +84,8 @@ public class HUD : MonoBehaviour
     {
         victory.enabled = true;
         victory.text = "Poseidon Wins!";
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(victoryTune, 1f);
         yield return new WaitForSeconds(3);
         Application.LoadLevel("MainMenu");
     }

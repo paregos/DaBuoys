@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveController : MonoBehaviour {
+public class WaveController : MonoBehaviour
+{
 
     private static int WAVE_VERT_WIDTH;
 
@@ -25,24 +26,28 @@ public class WaveController : MonoBehaviour {
     {
         Vector3[] vertices = mesh.vertices;
         float[] totalDistortions = new float[mesh.vertices.Length];
-        foreach (GameObject obj in bobbers) {
+        foreach (GameObject obj in bobbers)
+        {
             float[] distorts = obj.GetComponent<Plop>().getDistortions();
-            for (int j = 0; j < totalDistortions.Length; j++) {
+            for (int j = 0; j < totalDistortions.Length; j++)
+            {
                 totalDistortions[j] += distorts[j];
             }
         }
-        for (int i = 0; i < totalDistortions.Length; i++) {
+        for (int i = 0; i < totalDistortions.Length; i++)
+        {
             Vector3 vertex = vertices[i];
             vertex.y = totalDistortions[i];
-            vertex.y += Mathf.PerlinNoise(vertex.x + noiseWalk + Mathf.Sin(0.7f*Time.time), vertex.z + Mathf.Sin(0.7f*Time.time)) * noiseStrength - 0.5f;
-            vertices[i] = vertex;  
+            vertex.y += Mathf.PerlinNoise(vertex.x + noiseWalk + Mathf.Sin(0.7f * Time.time), vertex.z + Mathf.Sin(0.7f * Time.time)) * noiseStrength - 0.5f;
+            vertices[i] = vertex;
         }
         mesh.vertices = vertices;
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
     }
 
-    void OnApplicationQuit() {
+    void OnApplicationQuit()
+    {
         Vector3[] vertices = mesh.vertices;
         for (int i = 0; i < vertices.Length; i++)
         {
@@ -52,18 +57,40 @@ public class WaveController : MonoBehaviour {
         }
         mesh.vertices = vertices;
         mesh.RecalculateNormals();
-   
+
     }
 
-    public float GetWaterHeightAtLocation(float x, float z) {
-		float totalDistortion = 0f;
-		foreach (GameObject obj in bobbers) {
-			totalDistortion += obj.GetComponent<Plop>().getDistortionForPoint (x, z);
-		}
-		return totalDistortion;
+    public float GetWaterHeightAtLocation(float x, float z)
+    {
+        float totalDistortion = 0f;
+        foreach (GameObject obj in bobbers)
+        {
+            totalDistortion += obj.GetComponent<Plop>().getDistortionForPoint(x, z);
+        }
+        return totalDistortion;
     }
 
-	public float GetWaterNormalAtLocation(float x, float z) {
-		return 0f;
-	}
+    public float GetWaterNormalAtLocation(float x, float z)
+    {
+        return 0f;
+    }
+
+    public void fadeOutMusic(float timeOut)
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        StartCoroutine(volumeFadeOut(audio, timeOut));
+    }
+
+    IEnumerator volumeFadeOut(AudioSource audio, float duration)
+    {
+        float current = audio.volume;
+        float count = 0;
+        while (duration > count)
+        {
+            count += 0.1f;
+            yield return new WaitForSeconds(0.1f);
+            audio.volume = Mathf.Lerp(current, 0f, count / duration);
+        }
+        
+    }
 }

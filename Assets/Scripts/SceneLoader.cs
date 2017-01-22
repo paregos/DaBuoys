@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class SceneLoader : MonoBehaviour {
 
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) {
+            Application.LoadLevel("Level1");
+        }
+    }
     public void LoadGame()
     {
         Application.LoadLevel("Level1");
