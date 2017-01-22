@@ -55,6 +55,11 @@ public class WaveController : MonoBehaviour {
    
     }
 
+    public void fadeOutMusic()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+    }
+
     public float GetWaterHeightAtLocation(float x, float z) {
 		float totalDistortion = 0f;
 		foreach (GameObject obj in bobbers) {
