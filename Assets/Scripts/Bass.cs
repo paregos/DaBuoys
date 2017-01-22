@@ -40,7 +40,10 @@ public class Bass : MonoBehaviour {
         yield return new WaitForSeconds(timeToPlop);
         Transform trans = Instantiate(PlopEffect, startPos, Quaternion.identity) as Transform;
         Plop plop = trans.gameObject.GetComponent<Plop>();
-        plop.startDissipate(timeToPlop);
+        plop.vscale = plopForce;
+        plop.initialVScale = plopForce;
+        plop.startDissipate(10f);
+        
     }
 
     void OnTriggerStay(Collider other)

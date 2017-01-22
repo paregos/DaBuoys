@@ -11,14 +11,15 @@ public class Plop : MonoBehaviour {
 	public Mesh mesh;
 
     private WaveController controller;
-	public float vscale = 1f;
+	public float vscale = 5f;
 	public float hscale = 1f;
 	public float startTime = 0f;
 	public float period = 1f;
 
+    public float initialVScale;
+
     public bool dissipate = false;
     public float dissipateTime = 10f;
-    private float initialVScale;
     private float dissipateCounter = 0f;
 
     private Vector3[] baseHeight;
@@ -58,7 +59,8 @@ public class Plop : MonoBehaviour {
     public void startDissipate(float time)
     {
         dissipate = true;
-        dissipateCounter = time;
+        dissipateTime = time;
+        dissipateCounter = 0f;
     }
 
     public void startDissipate()

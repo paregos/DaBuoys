@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour {
 
     public Text timer;
-    public Text caught;
 
+    public Texture fish;
+    public Texture fishEaten;
+
+    public RawImage[] healthBar = new RawImage[3];
     private float time;
     private int fishCaught;
+
 
 
 	// Use this for initialization
@@ -26,11 +30,11 @@ public class HUD : MonoBehaviour {
         {
             PoseidonWins();
         }
-        caught.text = "Fisherman: " + fishCaught;
 	}
 
     public void caughtFish()
     {
+        healthBar[fishCaught].texture = fishEaten;
         fishCaught++;
         if (fishCaught >= 3)
         {

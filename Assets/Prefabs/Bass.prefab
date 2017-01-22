@@ -127,10 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlopEffect: {fileID: 4727937416909410, guid: 6a1d0c57f4aa47942a813dd361accf69, type: 2}
+  bassDropSpin: 4
   timeToPlop: 2.28
   killTime: 9
   plopTime: 2
-  plopForce: 3
+  plopForce: 5
 --- !u!135 &135382710368911642
 SphereCollider:
   m_ObjectHideFlags: 1

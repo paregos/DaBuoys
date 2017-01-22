@@ -15,17 +15,17 @@ public class Boaty : MonoBehaviour {
             sink();
             death = true;
         }
-
+        Rigidbody rb = GetComponent<Rigidbody>();
 
         moveDirection = Quaternion.Euler(0, 45, 0) * new Vector3(Input.GetAxis("P1-H"), 0, Input.GetAxis("P1-V"));
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= speed;
-        
+        Debug.Log(Input.GetAxis("P1-V"));
         transform.Rotate(transform.up, Input.GetAxis("P1-H") * rotationSpeed * Time.deltaTime);
         transform.Rotate(new Vector3(Input.GetAxis("P1-H"), 0, 0), Input.GetAxis("P1-H") * rotationSpeed * Time.deltaTime);
-        GetComponent<Rigidbody>().velocity += transform.right * speed * Input.GetAxis("P1-V") * Time.deltaTime;
-        GetComponent<Rigidbody>().velocity = transform.right * 
-            Mathf.Clamp(GetComponent<Rigidbody>().velocity.magnitude, 0, maxspeed);
+     
+        rb.velocity += Input.GetAxis("P1-V") * transform.right * speed * Time.deltaTime;
+        rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, -maxspeed, maxspeed);
     }
 
     private void sink()
